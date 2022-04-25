@@ -41,13 +41,13 @@ export default function CartProduto({ produtos }: ProdutosList) {
                       </h3>
                     </a>
                   </Link>
-                  <p className="mt-1 text-lg font-medium text-gray-900">
+                  {/* <p className="mt-1 text-lg font-medium text-gray-900">
                     {item.categorias?.map((categorias) => (
                       <button key={categorias.nome} className="m-1 py-1 px-2  rounded-lg shadow-md bg-gray-300 hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
                         {categorias.nome}
                       </button>
                     ))}
-                  </p>
+                  </p> */}
                 </div>
               )) : ''}
           </div>
