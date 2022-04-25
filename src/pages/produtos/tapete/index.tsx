@@ -10,7 +10,7 @@ export async function getStaticProps() {
   const { produtos } = await graphcms.request(
     `
       { 
-       produtos(orderBy: id_DESC,  where: {categorias_some: {_search: "pano-de-prato"}}) {
+       produtos(orderBy: id_DESC,  where: {categorias_some: {_search: "tapete"}}) {
           slug
           nome
           thumbnail {     
