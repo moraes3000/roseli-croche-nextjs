@@ -28,7 +28,7 @@ export default function CartProduto({ produtos }: ProdutosList) {
             {produtos ?
               produtos.map((item) => (
                 <div key={item.slug} className="group bg-gray-200	p-3 shadow-2xl drop-shadow-md">
-                  <Link href={`produtos/${item.slug}`}>
+                  <Link href={`/produtos/${item.slug}`}>
                     <a>
                       <div className="w-full aspect-w-1 aspect-h-1 bg-gray-200 rounded-lg overflow-hidden xl:aspect-w-7 xl:aspect-h-8 ">
                         <img src={item.thumbnail ? item.thumbnail.url : 'img/default.png'}
