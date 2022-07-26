@@ -8,20 +8,23 @@ export async function getStaticProps() {
 
   const { produtos } = await graphcms.request(
     `
-      { 
-       produtos(orderBy: id_DESC) {
-          slug
+    {
+      produtos(orderBy: id_DESC) {
+        slug
+        nome
+        thumbnail {
+          url(transformation: {image: {resize: {height: 450, width: 450}}})
+        }
+        categorias {
           nome
-          thumbnail {     
-            url(transformation: {image: {resize: {height: 450, width: 450}}})
-          }
-          categorias{
-            nome
-            slug
-          }
-          
+          slug
+        }
+        banner {
+          url
         }
       }
+    }
+    
     `
   );
 
@@ -38,8 +41,9 @@ interface ProdutosList {
 interface produtosProps {
   slug: string;
   nome: string;
-  thumbnail: ThumbnailProps;
+  thumbnail?: ThumbnailProps;
   categorias?: CategoryProps[];
+  banner?:any
 }
 
 interface ThumbnailProps {
@@ -49,6 +53,10 @@ interface ThumbnailProps {
 interface CategoryProps {
   nome: string
   slug: string
+}
+interface BannerProps {
+  url: string
+
 }
 
 export default function DetalhePosts({ produtos }: ProdutosList) {
@@ -63,11 +71,13 @@ export default function DetalhePosts({ produtos }: ProdutosList) {
                   <Link href={`produtos/${item.slug}`}>
                     <a>
                       <div className="w-full aspect-w-1 aspect-h-1 bg-gray-200 rounded-lg overflow-hidden xl:aspect-w-7 xl:aspect-h-8 ">
-                        <img src={item.thumbnail ? item.thumbnail.url : 'img/default.png'}
-                          alt=''
-                          className="w-full h-full object-center object-cover group-hover:opacity-75"
-
-                        />                </div>
+                               {item.thumbnail? (
+                            <img src={ item.thumbnail?.url}  className="w-full h-36 object-center object-cover group-hover:opacity-75"/>
+                          
+                          ) : (
+                            item.banner?.slice(0,1).map((banner) =><img src={ banner.url} key={banner.url} className="w-full h-36 object-center object-cover group-hover:opacity-75"/>)
+                          )}
+                          </div>
                       <h3 className="text-2xl font-extrabold tracking-tight mt-4 text-sm text-gray-700">
                         {item.nome}
                       </h3>

@@ -5,9 +5,12 @@
 
 .img-banners img{
   max-width: 100%!important;
-  max-height:500px!important;
+  max-height:300px!important;
 }
-
+.image-gallery-image{
+  max-width: 100%!important;
+  max-height:300px!important;
+}
 .image-gallery-left-nav .image-gallery-svg, .image-gallery-right-nav .image-gallery-svg {
   height: 47px!important;
   width: 60px!important;

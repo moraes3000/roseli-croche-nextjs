@@ -24,7 +24,7 @@ export async function getStaticProps({ params }) {
               nome
             }
               banner{      
-                url(transformation: {image: {resize: {height: 500, width: 500}}})
+                url(transformation: {image: {resize: {height: 350, width: 350}}})
             }
           }
         }
@@ -65,7 +65,7 @@ export default function Detalhe({ produto }) {
       {
         original: foto.url,
         thumbnail: foto.url,
-        originalHeight: 350
+        originalHeight: 350,
       }
     ))
 
@@ -74,7 +74,7 @@ export default function Detalhe({ produto }) {
     <>
       <div className="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-5">
-          <div className='col-span-2'>
+          <div className='col-span-2 h-52 imagembanner'>
             < ImageGallery items={img} thumbnailPosition={'right'} slideInterval={2000} />
 
           </div>
