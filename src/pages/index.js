@@ -35,31 +35,31 @@ export async function getStaticProps() {
   };
 }
 
-interface ProdutosList {
-  produtos?: produtosProps[];
-}
-interface produtosProps {
-  slug: string;
-  nome: string;
-  thumbnail?: ThumbnailProps;
-  categorias?: CategoryProps[];
-  banner?:any
-}
+// interface ProdutosList {
+//   produtos?: produtosProps[];
+// }
+// interface produtosProps {
+//   slug: string;
+//   nome: string;
+//   thumbnail?: ThumbnailProps;
+//   categorias?: CategoryProps[];
+//   banner?:any
+// }
 
-interface ThumbnailProps {
-  url: string;
-}
+// interface ThumbnailProps {
+//   url: string;
+// }
 
-interface CategoryProps {
-  nome: string
-  slug: string
-}
-interface BannerProps {
-  url: string
+// interface CategoryProps {
+//   nome: string
+//   slug: string
+// }
+// interface BannerProps {
+//   url: string
 
-}
+// }
 
-export default function DetalhePosts({ produtos }: ProdutosList) {
+export default function DetalhePosts({ produtos }) {
   return (
     <>
       <div className="bg-white" >
